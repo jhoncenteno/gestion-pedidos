@@ -1,0 +1,32 @@
+{% extends "0base.html" %}
+
+{%load static%}
+
+{% block title %} Blogs Internaciones {% endblock %}
+
+{%block content%}
+
+    <div class="container" id="containerBlog">
+        <div class="row">
+            {%for e in lista_internacionales%}
+                <div class="col-md-5 mx-auto">    
+                    <div class="card text-center">
+                        <img class="card-img-top" src="{{e.imagen.url}}">           
+                        <div class="card-header"><h2 style="font-size: 1.9rem;">{{e.titulo}}</h2></div>
+                        <div class="card-body" style="height: 6.5rem;">
+                            <p class="card-text text-left">{{e.contenido}}</p>
+                        </div>
+                        <div class="card-footer text-left">
+                            <h6 class="cardFooter">
+                                Autor: {{e.autor}} \\
+                                Categoria: {%for c in e.categorias.all%}{{c.nombre}}{% endfor %}
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}                                
+        </div>
+            
+    </div>
+
+{%endblock%} 

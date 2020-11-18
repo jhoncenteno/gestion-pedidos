@@ -1,0 +1,21 @@
+{% extends "0base.html" %}
+
+{%load static%}
+
+{% block title %} Servicios {% endblock %}
+
+{%block content%}
+
+    {% for i in servicios%} 
+    <div class="container" id="containerServicios">
+        <img id="imgservicios" src="{{i.imagen.url}}">   
+        <div class="servicios">
+            <h4 class="h4servicios"> {{i.titulo}}</h4>
+            <p class="pservicios"> {{i.contenido}} </p>
+        </div>
+    </div>
+
+    {% endfor %}   
+
+{%endblock%} 
+
